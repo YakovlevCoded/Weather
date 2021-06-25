@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <v-btn outlined href="https://github.com/YakovlevCoded"
+      <v-btn outlined href="https://github.com/YakovlevCoded/Weather"
         ><v-icon class="mr-2">mdi-github</v-icon>Weather App</v-btn
       >
       <v-spacer></v-spacer>
