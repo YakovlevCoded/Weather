@@ -1,4 +1,7 @@
-# weather-app
+# weather-app 
+
+## Preview
+https://weather-fetch.netlify.app/
 
 ## Project setup
 ```
