@@ -5,7 +5,7 @@
     :loading="loading"
     :error="error"
     outlined
-    label="Search wather by city"
+    label="Search weather by city"
     type="text"
   >
     <template v-slot:append>
@@ -15,8 +15,7 @@
 </template>
 
 <script>
-import axios from "axios";
-const key = "76b8f9c8c27ad7f00855a166183a6978";
+import { getWeatherByCityName } from "../api/getWeather.js";
 
 export default {
   data() {
@@ -28,25 +27,20 @@ export default {
   },
   methods: {
     search() {
-      this.model && this.model.length > 3 && this.loadWatherByCity(this.model);
+      this.model && this.model.length > 2 && this.loadWeatherByCity(this.model);
     },
-    async loadWatherByCity(v) {
+    async loadWeatherByCity(city) {
       this.loading = true;
       this.error = false;
 
-      // @TODO func to external module
-      try {
-        const res = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${v}&appid=${key}&units=metric`
-        );
-        if (res.status === 200) {
-          this.$emit("city-change", res.data);
-        }
-      } catch (e) {
+      const res = await getWeatherByCityName(city);
+
+      if (!res) {
         this.error = true;
         this.model = null;
-        this.$emit("city-change", null);
       }
+
+      this.$emit("city-change", res);
 
       this.loading = false;
     },

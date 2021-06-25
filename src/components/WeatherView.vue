@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row class="text-center">
+    <v-row class="text-center pt-6">
       <v-col cols="6">
         <Search @city-change="changeCity" />
       </v-col>
@@ -22,7 +22,7 @@
 
       <template v-else>
         <v-col cols="6">
-          <v-alert border="right" color="blue-grey" dark>
+          <v-alert border="right" color="primary" dark>
             We haven't the city already yet. Please, input the city name.
           </v-alert>
         </v-col>
@@ -51,7 +51,6 @@ export default {
   },
   methods: {
     changeCity(city) {
-      console.log(city);
       this.city = city;
     },
   },

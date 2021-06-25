@@ -1,5 +1,5 @@
 <template>
-  <v-card max-width="400">
+  <v-card>
     <v-list-item two-line>
       <v-list-item-content>
         <v-list-item-title class="text-h5"> {{ city.name }} </v-list-item-title>
@@ -14,7 +14,7 @@
         </v-col>
         <v-col cols="6">
           <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/sun.png"
+            :src="`/images/${city.weather[0].main}.png`"
             alt="Sunny image"
             width="92"
           ></v-img>
